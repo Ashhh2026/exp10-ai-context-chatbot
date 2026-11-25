@@ -1,0 +1,13 @@
+{
+  "name": "exp10-ai-context-chatbot",
+  "version": "1.0.0",
+  "description": "Experiment 10 AI-Powered Chatbot with Context & Session Memory by Ashwarya Agrawal (23BCON1659)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.1"
+  }
+}

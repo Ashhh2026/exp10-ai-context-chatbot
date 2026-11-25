@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Context Chatbot — Ashwarya Agrawal (23BCON1659) | Exp. 10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-strip">
+    <div class="container strip-row">
+      <span><strong>ASHWARYA AGRAWAL</strong> · ROLL NO: <strong>23BCON1659</strong></span>
+      <span class="mono">EXP 10 · CONTEXT-AWARE AI CHATBOT &amp; SESSION MEMORY</span>
+    </div>
+  </div>
+
+  <header class="app-header">
+    <div class="container header-row">
+      <div>
+        <span class="eyebrow">EXPERIMENT 10 // CONVERSATIONAL MEMORY &amp; PERSONA ENGINE</span>
+        <h1 class="hero-title">Context <span class="serif-italic">Chatbot</span></h1>
+        <p class="subtitle">
+          Built by <strong>Ashwarya Agrawal</strong> (Roll No: <strong>23BCON1659</strong>) — multi-turn conversational memory, live context extraction, persona switching, and instant session reset.
+        </p>
+      </div>
+      <div class="header-actions">
+        <select id="personaSelect" aria-label="Select AI Persona">
+          <option value="tutor">🎓 CS &amp; Web Tutor</option>
+          <option value="architect">🏗️ Systems Architect</option>
+          <option value="interview">💼 Placement Coach</option>
+        </select>
+        <button type="button" class="btn btn-ghost" id="newSessionBtn">↺ New Session</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container chat-layout">
+    <!-- Left Sidebar: Session Memory & Quick Prompts -->
+    <aside class="memory-sidebar">
+      <div class="panel">
+        <span class="eyebrow">SESSION TELEMETRY</span>
+        <div class="kv-row"><span>Session ID</span><code id="sessionIdText">—</code></div>
+        <div class="kv-row"><span>Active Persona</span><strong id="personaBadge">CS &amp; Web Tutor</strong></div>
+        <div class="kv-row"><span>Turns in Window</span><strong id="turnCounter">0 / 16</strong></div>
+      </div>
+
+      <div class="panel">
+        <span class="eyebrow">RETAINED CONTEXT</span>
+        <p class="panel-desc">Key topics and details detected from your turns in this session:</p>
+        <ul id="memoryFactsList" class="facts-list">
+          <li class="fact-empty">No facts extracted yet. Share what you're building!</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <span class="eyebrow">QUICK PROMPTS</span>
+        <div class="prompt-chips">
+          <button type="button" class="chip" data-sample="I am building SUVIDHA using Node.js, Express, and MongoDB for 23BCON1659.">Share project stack</button>
+          <button type="button" class="chip" data-sample="How should I index MongoDB collections for fast search and sorting?">Ask about indexing</button>
+          <button type="button" class="chip" data-sample="What did I say earlier and what are we focusing on?">Test memory recall</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Main Pane: Chat Thread + Composer -->
+    <section class="chat-card" aria-label="Conversation Thread">
+      <div class="chat-topbar">
+        <div class="status-dot-wrap">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="mono-sm">Session Memory Active</span>
+        </div>
+        <span class="mono-sm muted-sm">Enter to send · Shift+Enter for new line</span>
+      </div>
+
+      <div id="threadBox" class="thread-box" role="log" aria-live="polite"></div>
+
+      <form id="composerForm" class="composer-box" novalidate>
+        <textarea
+          id="promptTextarea"
+          rows="2"
+          placeholder="Message the assistant or ask it to recall earlier turns..."
+          aria-label="Chat message"
+        ></textarea>
+        <button type="submit" class="btn btn-primary" id="sendBtn">Send →</button>
+      </form>
+      <p class="err-line" id="errLine" role="alert"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container strip-row">
+      <span><strong>Ashwarya Agrawal</strong> · Roll No: <strong>23BCON1659</strong></span>
+      <span>Experiment 10 — AI Chatbot with Context &amp; Session Memory</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
